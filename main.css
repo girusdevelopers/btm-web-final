@@ -1,0 +1,325 @@
+body{
+
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    
+}
+
+body a {
+  text-decoration: none;
+}
+
+
+.preloader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.logo-placeholder {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.content {
+  display: none;
+  /* Add styles for your main content */
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.actual-logo {
+  max-width: 200px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+header {
+    position: sticky;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+  }
+  
+  .navbar {
+    padding: 5px 10px;
+    background-color: #fcfbfb;
+    
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+  
+  .settings {
+    cursor: pointer;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0; /* Sidebar now on the left side */
+    color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    background-color: white;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #555;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+  }
+
+
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100vw;
+    height: 30vh;
+
+  }
+  
+  .slide {
+    min-width: 100%;
+  }
+  
+.slide img {
+    width: 100%;
+    height: auto;
+    
+  }
+  
+  .slider-container {
+    width: 100%;
+    height:250px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+    
+  }
+  
+  .slide {
+    flex: 0 0 100%;
+  }
+
+  
+.music-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+
+.music-card img {
+    width: 100px;
+    height:100px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.side-heading{
+  font-size: 20px;
+  font-weight: 800;
+  
+}
+.magazine-sideheading{
+  font-size: 14px;
+  font-weight: 500;
+}
+.article{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.article-sideheading{
+  font-size: 14px;
+  font-weight: 500px;
+}
+
+.music-card-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+.song-des{
+  font-size: 12px;
+  padding-left: 5px;
+  margin: 0;
+
+}
+.song-title{
+  width: 140px;
+  font-weight: 500;
+  font-size: 14px;
+  padding-left: 5px;
+
+}
+.articles-card img {
+    width: 100%;
+    height:100px;
+    border-radius: 20px;
+}
+
+.magazines-wrapper{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color:white;
+}
+
+.magazines-wrapper img{
+    width: 110px;
+    height: 110px;
+}
+
+.video-card img {
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
+}
+
+/* footer */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 100%;
+  padding-top: 27px;
+  padding-bottom: 28px;
+  padding-left: 35px;
+  padding-right: 34px;
+  background: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  display: inline-flex;
+}
+
+.nav-item {
+  align-self: stretch;
+  position: relative;
+  width: 30px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  left: 3px;
+  top: 0px;
+  position: absolute;
+}
+
+.label {
+  left: 0px;
+  top: 30px;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+
+/* Footer */
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #080755;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#footer a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+
+/* Index Articles Wrapper */
+
+#articleContainer article{
+  height:auto;
+}
+
+#articleContainer img {
+  border-radius: 20px;
+  height : 100px;
+  width:100px;
+}
+
+#articleContainer p{
+
+font-size: 10px;
+
+}
+
+/* Index Magaxine Wrapper */
+
+#magazineContainer article{
+  height:auto;
+}
+
+#magazineContainer img {
+  border-radius: 20px;
+  height : 100px;
+  width:100px;
+}
+
+#magazineContainer p{
+
+font-size: 10px;
+
+}
+

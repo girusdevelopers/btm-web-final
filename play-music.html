@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="play-music.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Add your custom styles here */
+       
+    </style>
+</head>
+<body>
+    
+    <div class="player">
+        <div class="wrapper">
+            <div class="details">
+                <div class="now-playing">PLAYING x OF y</div>
+                <div class="track-art"></div>
+                <div class="track-name">Track Name</div>
+                <div class="track-artist">Track Artist</div>
+            </div>
+
+            <div class="slider_container">
+                <div class="current-time">00:00</div>
+                <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+                <div class="total-duration">00:00</div>
+            </div>
+
+            <div class="slider_container">
+                <i class="fa fa-volume-down"></i>
+                <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+                <i class="fa fa-volume-up"></i>
+            </div>
+
+            <div class="buttons">
+                <div class="random-track" onclick="randomTrack()">
+                    <i class="fas fa-random fa-2x" title="random"></i>
+                </div>
+                <div class="prev-track" onclick="prevTrack()">
+                    <i class="fa fa-step-backward fa-2x"></i>
+                </div>
+                <div class="playpause-track" onclick="playpauseTrack()">
+                    <i class="fa fa-play-circle fa-5x"></i>
+                </div>
+                <div class="next-track" onclick="nextTrack()">
+                    <i class="fa fa-step-forward fa-2x"></i>
+                </div>
+                <div class="repeat-track" onclick="repeatTrack()">
+                    <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                </div>
+            </div>
+
+            <div id="wave">
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+            </div>
+        </div>
+    </div>
+    <script src="play-music.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const audio = new Audio();
+            const playpause_btn = document.querySelector(".playpause-track");
+            const trackArt = document.querySelector(".track-art");
+            const nowPlaying = document.querySelector(".now-playing");
+            const trackName = document.querySelector(".track-name");
+            const trackArtist = document.querySelector(".track-artist");
+            const seekSlider = document.querySelector(".seek_slider");
+            const volumeSlider = document.querySelector(".volume_slider");
+            let isPlaying = false;
+
+            // Extract audio URL from the query parameters
+            const params = new URLSearchParams(window.location.search);
+            const audioUrl = params.get("audioUrl");
+
+            // Load the specified song
+            loadSong(audioUrl);
+
+            function loadSong(audioUrl) {
+                audio.src = audioUrl;
+                audio.play(); // Start playing the new song
+                updateSongDetails();
+                isPlaying = true;
+            }
+
+            function updateSongDetails() {
+                // Update the song details based on your logic
+                // For example, you can set trackName.textContent and trackArtist.textContent here
+            }
+
+            function playpauseTrack() {
+                if (isPlaying) {
+                    audio.pause();
+                    playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+                } else {
+                    audio.play();
+                    playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+                }
+                isPlaying = !isPlaying;
+            }
+
+            function seekTo() {
+                const seekto = audio.duration * (seekSlider.value / 100);
+                audio.currentTime = seekto;
+            }
+
+            function setVolume() {
+                audio.volume = volumeSlider.value / 100;
+            }
+
+            // Event listeners for buttons and sliders
+            audio.addEventListener("timeupdate", function () {
+                const position = audio.currentTime / audio.duration;
+                seekSlider.value = position * 100;
+            });
+
+            audio.addEventListener("ended", function () {
+                // Handle the end of the song, for example, go back to the music list
+                window.location.href = "music-list.html";
+            });
+
+            // Add click event listeners to control buttons
+            document.querySelector(".playpause-track").addEventListener("click", playpauseTrack);
+
+            // Add input event listeners to sliders
+            seekSlider.addEventListener("input", seekTo);
+            volumeSlider.addEventListener("input", setVolume);
+        });
+    </script>
+
+</body>
+</html>
